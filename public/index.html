@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Tratamentos Odontológicos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cadastro de Tratamentos Odontológicos</h1>
+        </header>
+
+        <main>
+            <!-- Seção: Novo Tratamento -->
+            <section class="section">
+                <h2>Novo Tratamento</h2>
+                <form id="createForm">
+                    <div class="form-group">
+                        <label for="description">Descrição do Procedimento:</label>
+                        <textarea 
+                            id="description" 
+                            name="description" 
+                            placeholder="Descreva o procedimento realizado..."
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Criar Cadastro</button>
+                </form>
+                <div id="createMessage" class="message"></div>
+            </section>
+
+            <!-- Seção: Lista de Tratamentos -->
+            <section class="section">
+                <h2>Meus Tratamentos</h2>
+                
+                <!-- Filtros de Busca -->
+                <div class="filter-container">
+                    <div class="filter-group">
+                        <label for="filterName">Buscar por Descrição:</label>
+                        <input type="text" id="filterName" class="filter-input" placeholder="Digite a descrição...">
+                    </div>
+                    <button id="filterBtn" class="btn btn-secondary">Buscar</button>
+                </div>
+
+                <button id="refreshBtn" class="btn btn-secondary">Atualizar Lista</button>
+                <div id="treatmentsList" class="treatments-list">
+                    <p class="placeholder">Nenhum tratamento cadastrado ainda...</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Sistema de Cadastro de Tratamentos Odontológicos</p>
+        </footer>
+    </div>
+
+    <!-- Modal para editar tratamento recusado -->
+    <div id="editModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Editar Tratamento</h2>
+            <form id="editForm">
+                <input type="hidden" id="editTreatmentId">
+                <div class="form-group">
+                    <label for="editDescription">Descrição:</label>
+                    <textarea id="editDescription" name="description" required></textarea>
+                </div>
+                <div class="modal-buttons">
+                    <button type="submit" class="btn btn-primary">Salvar e Reenviar</button>
+                    <button type="button" class="btn btn-secondary" id="cancelEditBtn">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
